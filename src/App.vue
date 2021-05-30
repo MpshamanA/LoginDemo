@@ -1,11 +1,26 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">ログイン</router-link> |
+    <router-link to="/about">About</router-link> |
+    <!-- nameはinddex.jsのnameと紐付けて設定できる -->
+    <router-link
+      :to="{ name: 'user', params: { id: userId }, query: { q: 'foo' } }"
+      >User</router-link
+    >
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
+<script>
+export default {
+  props: {},
+  data() {
+    return {
+      userId: 5,
+    };
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
